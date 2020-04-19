@@ -1,13 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author TRUMMERPhilipp
- */
 public class AddWordDialog extends javax.swing.JDialog {
 
     /**
@@ -71,7 +61,7 @@ public class AddWordDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btNewActionPerformed
 
     private void btLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoadActionPerformed
