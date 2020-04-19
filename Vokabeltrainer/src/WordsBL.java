@@ -1,16 +1,26 @@
 
+import java.util.ArrayList;
 import javax.swing.AbstractListModel;
 
-public class WordsBL extends AbstractListModel{
+public class WordsBL extends AbstractListModel {
+
+    private ArrayList<Words> word = new ArrayList<>();
+    private ArrayList<Words> filtered = new ArrayList<>();
+
+    public void add(Words w) {
+        word.add(w);
+        filtered.add(w);
+        this.fireIntervalAdded(this, filtered.size() - 1, filtered.size() - 1);
+    }
 
     @Override
     public int getSize() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return filtered.size();
     }
 
     @Override
     public Object getElementAt(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return filtered.get(index);
     }
-    
+
 }
