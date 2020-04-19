@@ -54,9 +54,9 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(btNew)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                         .addComponent(btLoad))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btClose)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btClose)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
