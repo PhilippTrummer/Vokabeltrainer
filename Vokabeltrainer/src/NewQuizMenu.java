@@ -8,6 +8,7 @@ public class NewQuizMenu extends javax.swing.JFrame {
      */
     public NewQuizMenu() {
         initComponents();
+        listWords.setModel(bl);
     }
 
     /**
