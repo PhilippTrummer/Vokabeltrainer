@@ -115,7 +115,11 @@ public class NewQuizMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btAddActionPerformed
 
     private void btDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeleteActionPerformed
-        // TODO add your handling code here:
+        
+        
+            bl.remove((Words)bl.getElementAt(listWords.getSelectedIndex()));
+        
+        
     }//GEN-LAST:event_btDeleteActionPerformed
 
     private void btEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditActionPerformed

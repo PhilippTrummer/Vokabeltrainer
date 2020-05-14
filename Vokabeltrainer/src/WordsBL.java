@@ -13,6 +13,13 @@ public class WordsBL extends AbstractListModel {
         this.fireIntervalAdded(this, filtered.size() - 1, filtered.size() - 1);
     }
 
+    public void remove(Words w){
+        
+        filtered.remove(w);
+        
+        this.fireContentsChanged(this, 0, filtered.size()-1);
+    }
+    
     @Override
     public int getSize() {
         return filtered.size();
