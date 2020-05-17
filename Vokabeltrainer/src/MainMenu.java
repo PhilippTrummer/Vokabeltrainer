@@ -1,3 +1,6 @@
+
+import javax.swing.JFileChooser;
+
 public class MainMenu extends javax.swing.JFrame {
 
     public MainMenu() {
@@ -11,6 +14,7 @@ public class MainMenu extends javax.swing.JFrame {
         btNew = new javax.swing.JButton();
         btLoad = new javax.swing.JButton();
         btClose = new javax.swing.JButton();
+        btEdit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -21,7 +25,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        btLoad.setText("Quiz laden");
+        btLoad.setText("Quiz beginnen");
         btLoad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLoadActionPerformed(evt);
@@ -35,6 +39,8 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        btEdit.setText("Quiz bearbeiten");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -44,7 +50,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btNew)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                        .addGap(73, 73, 73)
+                        .addComponent(btEdit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addComponent(btLoad))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btClose)
@@ -57,7 +65,8 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(127, 127, 127)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btNew)
-                    .addComponent(btLoad))
+                    .addComponent(btLoad)
+                    .addComponent(btEdit))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(btClose)
                 .addContainerGap())
@@ -73,7 +82,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btNewActionPerformed
 
     private void btLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoadActionPerformed
-        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser("C:\\Users\\Philipp\\Desktop\\2CHIF\\POS\\Netbeans\\ Exercise_131_VelocityGUI");
+        int i = chooser.showOpenDialog(this);
+        if (i == JFileChooser.APPROVE_OPTION) {
+            WordsBL.load(chooser.getSelectedFile());
+        }
     }//GEN-LAST:event_btLoadActionPerformed
 
     private void btCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCloseActionPerformed
@@ -113,6 +126,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btClose;
+    private javax.swing.JButton btEdit;
     private javax.swing.JButton btLoad;
     private javax.swing.JButton btNew;
     // End of variables declaration//GEN-END:variables

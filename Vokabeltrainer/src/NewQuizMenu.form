@@ -29,7 +29,6 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btAdd" max="32767" attributes="0"/>
-                          <Component id="btEdit" alignment="0" max="32767" attributes="0"/>
                           <Component id="btDelete" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -53,9 +52,7 @@
                   <Component id="jScrollPane1" min="-2" pref="172" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="btAdd" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btEdit" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btDelete" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -111,14 +108,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAddActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btEdit">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Wort bearbeiten"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEditActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btDelete">

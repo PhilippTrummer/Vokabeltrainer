@@ -2,7 +2,7 @@
 public class NewQuizMenu extends javax.swing.JFrame {
 
     private WordsBL bl = new WordsBL();
-    
+
     public NewQuizMenu() {
         initComponents();
         listWords.setModel(bl);
@@ -17,7 +17,6 @@ public class NewQuizMenu extends javax.swing.JFrame {
         btFinish = new javax.swing.JButton();
         btBack = new javax.swing.JButton();
         btAdd = new javax.swing.JButton();
-        btEdit = new javax.swing.JButton();
         btDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,13 +44,6 @@ public class NewQuizMenu extends javax.swing.JFrame {
             }
         });
 
-        btEdit.setText("Wort bearbeiten");
-        btEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditActionPerformed(evt);
-            }
-        });
-
         btDelete.setText("Wort löschen");
         btDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +61,6 @@ public class NewQuizMenu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))
@@ -87,9 +78,7 @@ public class NewQuizMenu extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btAdd)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btDelete)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -115,16 +104,8 @@ public class NewQuizMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btAddActionPerformed
 
     private void btDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeleteActionPerformed
-        
-        
-            bl.remove((Words)bl.getElementAt(listWords.getSelectedIndex()));
-        
-        
+        bl.remove((Words) bl.getElementAt(listWords.getSelectedIndex()));
     }//GEN-LAST:event_btDeleteActionPerformed
-
-    private void btEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btEditActionPerformed
 
     private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed
         MainMenu mm = new MainMenu();
@@ -167,7 +148,6 @@ public class NewQuizMenu extends javax.swing.JFrame {
     private javax.swing.JButton btAdd;
     private javax.swing.JButton btBack;
     private javax.swing.JButton btDelete;
-    private javax.swing.JButton btEdit;
     private javax.swing.JButton btFinish;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listWords;
