@@ -12,6 +12,12 @@ public class Words {
         explanation = parts[2];
     }
 
+    public Words(String germanWord, String otherWord, String explanation) {
+        this.germanWord = germanWord;
+        this.otherWord = otherWord;
+        this.explanation = explanation;
+    }
+
     public void setGermanWord(String germanWord) {
         this.germanWord = germanWord;
     }
@@ -39,5 +45,9 @@ public class Words {
     @Override
     public String toString() {
         return String.format("%s %s %s", germanWord, otherWord, explanation);
+    }
+
+    public String toCSV() {
+        return String.format("%s,%s,%s\n", germanWord, otherWord, explanation);
     }
 }

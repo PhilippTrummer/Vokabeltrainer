@@ -1,4 +1,6 @@
 
+import javax.swing.JFileChooser;
+
 public class NewQuizMenu extends javax.swing.JFrame {
 
     private WordsBL bl = new WordsBL();
@@ -23,7 +25,7 @@ public class NewQuizMenu extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(listWords);
 
-        btFinish.setText("Fertig");
+        btFinish.setText("Liste speichern");
         btFinish.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btFinishActionPerformed(evt);
@@ -91,7 +93,7 @@ public class NewQuizMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinishActionPerformed
-        // TODO add your handling code here:
+        bl.save();
     }//GEN-LAST:event_btFinishActionPerformed
 
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed

@@ -82,7 +82,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btNewActionPerformed
 
     private void btLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoadActionPerformed
-        JFileChooser chooser = new JFileChooser("C:\\Users\\Philipp\\Desktop\\2CHIF\\POS\\Netbeans\\ Exercise_131_VelocityGUI");
+        JFileChooser chooser = new JFileChooser("C:\\Users");
         int i = chooser.showOpenDialog(this);
         if (i == JFileChooser.APPROVE_OPTION) {
             WordsBL.load(chooser.getSelectedFile());
