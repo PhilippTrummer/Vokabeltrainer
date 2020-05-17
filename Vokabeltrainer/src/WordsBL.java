@@ -10,21 +10,20 @@ import javax.swing.JFileChooser;
 
 public class WordsBL extends AbstractListModel {
 
-    private static ArrayList<Words> word = new ArrayList<>();
-    private static ArrayList<Words> filtered = new ArrayList<>();
+    private ArrayList<Words> word = new ArrayList<>();
+    JFileChooser chooser = new JFileChooser();
 
     public void add(Words w) {
         word.add(w);
-        filtered.add(w);
-        this.fireIntervalAdded(this, filtered.size() - 1, filtered.size() - 1);
+        this.fireIntervalAdded(this, word.size() - 1, word.size() - 1);
     }
 
     public void remove(Words w) {
-        filtered.remove(w);
-        this.fireContentsChanged(this, 0, filtered.size() - 1);
+        word.remove(w);
+        this.fireContentsChanged(this, 0, word.size() - 1);
     }
 
-    public static void load(File f) {
+    public void loadLearn(File f) {
         try (BufferedReader br = new BufferedReader(new FileReader(f))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -33,15 +32,29 @@ public class WordsBL extends AbstractListModel {
                 } catch (Exception e) {
                 }
             }
-            filtered.addAll(word);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(word);
+    }
+
+    public void loadEdit(File f) {
+        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                try {
+                    word.add(new Words(line));
+                    this.fireIntervalAdded(this, 0, word.size() - 1);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.fireIntervalAdded(this, 0, word.size() - 1);
     }
 
     public void save() {
-        JFileChooser chooser = new JFileChooser();
         int i = chooser.showOpenDialog(null);
         if (i == JFileChooser.APPROVE_OPTION) {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File("" + chooser.getSelectedFile())))) {
@@ -56,12 +69,12 @@ public class WordsBL extends AbstractListModel {
 
     @Override
     public int getSize() {
-        return filtered.size();
+        return word.size();
     }
 
     @Override
     public Object getElementAt(int index) {
-        return filtered.get(index);
+        return word.get(index);
     }
 
 }

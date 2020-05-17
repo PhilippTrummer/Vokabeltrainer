@@ -1,14 +1,19 @@
 
-import javax.swing.JOptionPane;
+import javax.swing.JFileChooser;
 
+public class EditQuizMenu extends javax.swing.JFrame {
 
-public class NewQuizMenu extends javax.swing.JFrame {
+    WordsBL bl = new WordsBL();
 
-    private WordsBL bl = new WordsBL();
-
-    public NewQuizMenu() {
+    public EditQuizMenu() {
         initComponents();
-        listWords.setModel(bl);
+        listEdit.setModel(bl);
+        
+        JFileChooser chooser = new JFileChooser("C:\\Users");
+        int i = chooser.showOpenDialog(this);
+        if (i == JFileChooser.APPROVE_OPTION) {
+            bl.loadEdit(chooser.getSelectedFile());
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -16,20 +21,20 @@ public class NewQuizMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        listWords = new javax.swing.JList<>();
-        btFinish = new javax.swing.JButton();
+        listEdit = new javax.swing.JList<>();
+        btSaveChange = new javax.swing.JButton();
         btBack = new javax.swing.JButton();
         btAdd = new javax.swing.JButton();
         btDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(listWords);
+        jScrollPane1.setViewportView(listEdit);
 
-        btFinish.setText("Liste speichern");
-        btFinish.addActionListener(new java.awt.event.ActionListener() {
+        btSaveChange.setText("Änderungen speichern");
+        btSaveChange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btFinishActionPerformed(evt);
+                btSaveChangeActionPerformed(evt);
             }
         });
 
@@ -62,15 +67,15 @@ public class NewQuizMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                             .addComponent(btDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
-                        .addComponent(btFinish)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btSaveChange)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -78,28 +83,20 @@ public class NewQuizMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btAdd)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btDelete)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btFinish)
+                    .addComponent(btSaveChange)
                     .addComponent(btBack))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinishActionPerformed
-        bl.save();
-
-        MainMenu mm = new MainMenu();
-        mm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btFinishActionPerformed
 
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
         AddWordDialog dialog = new AddWordDialog(this, true);
@@ -112,8 +109,8 @@ public class NewQuizMenu extends javax.swing.JFrame {
 
     private void btDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeleteActionPerformed
         try {
-            bl.remove((Words) bl.getElementAt(listWords.getSelectedIndex()));
-        } catch(Exception e)  {
+            bl.remove((Words) bl.getElementAt(listEdit.getSelectedIndex()));
+        } catch (Exception e) {
 
         }
     }//GEN-LAST:event_btDeleteActionPerformed
@@ -124,6 +121,17 @@ public class NewQuizMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btBackActionPerformed
 
+    private void btSaveChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaveChangeActionPerformed
+        bl.save();
+
+        MainMenu mm = new MainMenu();
+        mm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btSaveChangeActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -138,19 +146,21 @@ public class NewQuizMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewQuizMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditQuizMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewQuizMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditQuizMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewQuizMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditQuizMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewQuizMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditQuizMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewQuizMenu().setVisible(true);
+                new EditQuizMenu().setVisible(true);
             }
         });
     }
@@ -159,8 +169,8 @@ public class NewQuizMenu extends javax.swing.JFrame {
     private javax.swing.JButton btAdd;
     private javax.swing.JButton btBack;
     private javax.swing.JButton btDelete;
-    private javax.swing.JButton btFinish;
+    private javax.swing.JButton btSaveChange;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listWords;
+    private javax.swing.JList<String> listEdit;
     // End of variables declaration//GEN-END:variables
 }

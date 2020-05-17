@@ -3,6 +3,8 @@ import javax.swing.JFileChooser;
 
 public class MainMenu extends javax.swing.JFrame {
 
+    WordsBL bl = new WordsBL();
+
     public MainMenu() {
         initComponents();
     }
@@ -40,6 +42,11 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         btEdit.setText("Quiz bearbeiten");
+        btEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,13 +92,19 @@ public class MainMenu extends javax.swing.JFrame {
         JFileChooser chooser = new JFileChooser("C:\\Users");
         int i = chooser.showOpenDialog(this);
         if (i == JFileChooser.APPROVE_OPTION) {
-            WordsBL.load(chooser.getSelectedFile());
+            bl.loadLearn(chooser.getSelectedFile());
         }
     }//GEN-LAST:event_btLoadActionPerformed
 
     private void btCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCloseActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btCloseActionPerformed
+
+    private void btEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditActionPerformed
+        EditQuizMenu nqm = new EditQuizMenu();
+        nqm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btEditActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
