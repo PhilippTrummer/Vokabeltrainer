@@ -122,7 +122,7 @@ public class EditQuizMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btBackActionPerformed
 
     private void btSaveChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaveChangeActionPerformed
-        bl.save();
+        bl.saveFile();
 
         MainMenu mm = new MainMenu();
         mm.setVisible(true);

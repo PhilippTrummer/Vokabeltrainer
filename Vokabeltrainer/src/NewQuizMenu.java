@@ -1,7 +1,3 @@
-
-import javax.swing.JOptionPane;
-
-
 public class NewQuizMenu extends javax.swing.JFrame {
 
     private WordsBL bl = new WordsBL();
@@ -94,7 +90,7 @@ public class NewQuizMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinishActionPerformed
-        bl.save();
+        bl.saveFile();
 
         MainMenu mm = new MainMenu();
         mm.setVisible(true);

@@ -54,7 +54,7 @@ public class WordsBL extends AbstractListModel {
         this.fireIntervalAdded(this, 0, word.size() - 1);
     }
 
-    public void save() {
+    public void saveFile() {
         int i = chooser.showOpenDialog(null);
         if (i == JFileChooser.APPROVE_OPTION) {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File("" + chooser.getSelectedFile())))) {

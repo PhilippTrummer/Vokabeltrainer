@@ -1,6 +1,4 @@
 
-import javax.swing.JFileChooser;
-
 public class MainMenu extends javax.swing.JFrame {
 
     WordsBL bl = new WordsBL();
@@ -14,23 +12,23 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         btNew = new javax.swing.JButton();
-        btLoad = new javax.swing.JButton();
+        btBeginn = new javax.swing.JButton();
         btClose = new javax.swing.JButton();
         btEdit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btNew.setText("Neues Quiz");
+        btNew.setText("Neues Quiz erstellen");
         btNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNewActionPerformed(evt);
             }
         });
 
-        btLoad.setText("Quiz beginnen");
-        btLoad.addActionListener(new java.awt.event.ActionListener() {
+        btBeginn.setText("Quiz beginnen");
+        btBeginn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btLoadActionPerformed(evt);
+                btBeginnActionPerformed(evt);
             }
         });
 
@@ -57,14 +55,12 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btNew)
-                        .addGap(73, 73, 73)
+                        .addGap(18, 18, 18)
                         .addComponent(btEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                        .addComponent(btLoad))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btClose)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(18, 18, 18)
+                        .addComponent(btBeginn))
+                    .addComponent(btClose))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,7 +68,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(127, 127, 127)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btNew)
-                    .addComponent(btLoad)
+                    .addComponent(btBeginn)
                     .addComponent(btEdit))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(btClose)
@@ -88,13 +84,11 @@ public class MainMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btNewActionPerformed
 
-    private void btLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoadActionPerformed
-        JFileChooser chooser = new JFileChooser("C:\\Users");
-        int i = chooser.showOpenDialog(this);
-        if (i == JFileChooser.APPROVE_OPTION) {
-            bl.loadLearn(chooser.getSelectedFile());
-        }
-    }//GEN-LAST:event_btLoadActionPerformed
+    private void btBeginnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBeginnActionPerformed
+        LearningMenu lm = new LearningMenu();
+        lm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btBeginnActionPerformed
 
     private void btCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCloseActionPerformed
         System.exit(0);
@@ -138,9 +132,9 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btBeginn;
     private javax.swing.JButton btClose;
     private javax.swing.JButton btEdit;
-    private javax.swing.JButton btLoad;
     private javax.swing.JButton btNew;
     // End of variables declaration//GEN-END:variables
 }
