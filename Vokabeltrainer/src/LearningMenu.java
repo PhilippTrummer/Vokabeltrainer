@@ -10,7 +10,7 @@ public class LearningMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         btClassic = new javax.swing.JButton();
-        btChoose = new javax.swing.JButton();
+        btSelect = new javax.swing.JButton();
         btSpeak = new javax.swing.JButton();
         btBack = new javax.swing.JButton();
 
@@ -23,9 +23,19 @@ public class LearningMenu extends javax.swing.JFrame {
             }
         });
 
-        btChoose.setText("Spielerisches Quiz");
+        btSelect.setText("Spielerisches Quiz");
+        btSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSelectActionPerformed(evt);
+            }
+        });
 
         btSpeak.setText("Sprachausgabe Quiz");
+        btSpeak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSpeakActionPerformed(evt);
+            }
+        });
 
         btBack.setText("Zurück");
         btBack.addActionListener(new java.awt.event.ActionListener() {
@@ -45,7 +55,7 @@ public class LearningMenu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btClassic)
                         .addGap(18, 18, 18)
-                        .addComponent(btChoose)
+                        .addComponent(btSelect)
                         .addGap(18, 18, 18)
                         .addComponent(btSpeak)))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -56,7 +66,7 @@ public class LearningMenu extends javax.swing.JFrame {
                 .addGap(134, 134, 134)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btClassic)
-                    .addComponent(btChoose)
+                    .addComponent(btSelect)
                     .addComponent(btSpeak))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(btBack)
@@ -77,6 +87,18 @@ public class LearningMenu extends javax.swing.JFrame {
         mm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btBackActionPerformed
+
+    private void btSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSelectActionPerformed
+        SelectLearning sl = new SelectLearning();
+        sl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btSelectActionPerformed
+
+    private void btSpeakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSpeakActionPerformed
+        SpeakLearning spl = new SpeakLearning();
+        spl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btSpeakActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,8 +137,8 @@ public class LearningMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBack;
-    private javax.swing.JButton btChoose;
     private javax.swing.JButton btClassic;
+    private javax.swing.JButton btSelect;
     private javax.swing.JButton btSpeak;
     // End of variables declaration//GEN-END:variables
 }

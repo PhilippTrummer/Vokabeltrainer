@@ -30,7 +30,7 @@
                   <Group type="102" attributes="0">
                       <Component id="btClassic" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btChoose" min="-2" max="-2" attributes="0"/>
+                      <Component id="btSelect" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btSpeak" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -45,7 +45,7 @@
               <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btClassic" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btChoose" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btSelect" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btSpeak" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="114" max="32767" attributes="0"/>
@@ -64,15 +64,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btClassicActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btChoose">
+    <Component class="javax.swing.JButton" name="btSelect">
       <Properties>
         <Property name="text" type="java.lang.String" value="Spielerisches Quiz"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSelectActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btSpeak">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sprachausgabe Quiz"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSpeakActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btBack">
       <Properties>
