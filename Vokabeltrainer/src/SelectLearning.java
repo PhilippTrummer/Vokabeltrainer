@@ -62,13 +62,14 @@ public class SelectLearning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         btCancel = new javax.swing.JButton();
-        cb1 = new javax.swing.JCheckBox();
         tfGermanWord = new javax.swing.JTextField();
-        cb2 = new javax.swing.JCheckBox();
-        cb3 = new javax.swing.JCheckBox();
-        cb4 = new javax.swing.JCheckBox();
         btCheck = new javax.swing.JButton();
+        cb1 = new javax.swing.JRadioButton();
+        cb2 = new javax.swing.JRadioButton();
+        cb3 = new javax.swing.JRadioButton();
+        cb4 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +89,14 @@ public class SelectLearning extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(cb1);
+
+        buttonGroup1.add(cb2);
+
+        buttonGroup1.add(cb3);
+
+        buttonGroup1.add(cb4);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,34 +105,35 @@ public class SelectLearning extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cb1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btCancel))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btCancel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btCheck))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfGermanWord, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cb2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cb1)
                                 .addGap(18, 18, 18)
-                                .addComponent(cb3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cb2)
                                 .addGap(18, 18, 18)
-                                .addComponent(cb4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btCheck)))
-                    .addComponent(tfGermanWord, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                                .addComponent(cb3)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb4)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tfGermanWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cb2)
-                        .addComponent(cb3)
-                        .addComponent(cb4)))
-                .addGap(52, 52, 52)
+                    .addComponent(cb2)
+                    .addComponent(cb3)
+                    .addComponent(cb4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCancel)
                     .addComponent(btCheck))
@@ -294,6 +304,7 @@ public class SelectLearning extends javax.swing.JFrame {
             mm.setVisible(true);
             this.dispose();
         }
+        buttonGroup1.clearSelection();
     }//GEN-LAST:event_btCheckActionPerformed
 
     /**
@@ -334,10 +345,11 @@ public class SelectLearning extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancel;
     private javax.swing.JButton btCheck;
-    private javax.swing.JCheckBox cb1;
-    private javax.swing.JCheckBox cb2;
-    private javax.swing.JCheckBox cb3;
-    private javax.swing.JCheckBox cb4;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton cb1;
+    private javax.swing.JRadioButton cb2;
+    private javax.swing.JRadioButton cb3;
+    private javax.swing.JRadioButton cb4;
     private javax.swing.JTextField tfGermanWord;
     // End of variables declaration//GEN-END:variables
 }
